@@ -1,0 +1,20 @@
+{
+  "name": "trabajofinal2.0",
+  "version": "1.0.0",
+  "description": "Por medio de esta pagina no solo quiero simplemente abordar este tema, también me he atrevido a proponer una herramienta de intervención, de fácil comprensión y aplicación, en la siguiente pagina se plasman una serie de actividades lúdico recreativas que nos servirán como base para la intervención que necesitan los niños y niñas que presentan conductas negativas o con dificultad para regular sus emociones.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Yecenia Florez",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2",
+    "nodemon": "^3.1.0"
+  }
+}
