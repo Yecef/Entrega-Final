@@ -27,47 +27,47 @@ const mostrarUsuarios = async () => {
 
 // Función para crear tarjetas con los datos de los productos
 function crearTabla(Usuarios) {
-  const tabla = document.getElementById("Tabla");
+  const tabla = document.getElementById("miTabla");
 
   tabla.innerHTML = "";
   Usuarios.forEach(Usuario => {
-
-    // creamos una fila en la tabla
+    console.log({ Usuario })
+    // // creamos una fila en la tabla
     tabla.innerHTML += `
-          // <tr>
-          //   <td>${Usuario.nombreCompleto}</td>
-          //   <td>${Usuario.correo}</td>
-          //   <td class="acciones">
-          //     <button type="button" class="btn btn-info" id="${Usuario._id}" onclick='editarUsuario(event)'>
-          //       <i class="bi bi-pencil-square"></i>
-          //       Editar
-          //     </button>
+           <tr>
+             <td>${Usuario.nombreCompleto}</td>
+             <td>${Usuario.correo}</td>
+             <td class="acciones" style="display:flex;">
 
-          //     <button type="button" class="btn btn-danger" id="${Usuario._id}" onclick='eliminarUsuario(event)'>
-          //       <i class="bi bi-trash"></i>
-          //       Eliminar
-          //     </button>
-          //   </td>
-          // </tr>
-          // `;
+               <button type="button" class="btn btn-info" id="${Usuario._id}" onclick='editarUsuario(event)'>
+                 <i class="bi bi-pencil-square"></i>
+                 
+             </button>
+               <button type="button" class="btn btn-danger" id="${Usuario._id}" onclick='eliminarUsuario("${Usuario._id}")'>
+                 <i class="bi bi-trash"></i>
+                 
+               </button>
+             </td>
+           </tr>
+           `;
 
-          const btn = document.getElementById("btn");
-btn.addEventListener("click",()=>{
-eliminarUsuario(Event);
+    // const btn = document.getElementById("btn");
+    // btn.addEventListener("click", () => {
+    //   eliminarUsuario(Event);
 
-}); 
+    // });
   });
 }
 
 mostrarUsuarios();
 
 
-function eliminarUsuario(event) {
+function eliminarUsuario(usuarioId) {
   console.log("eliminar");
-  const idUsuarioEliminar = event.target.id;
+  const idUsuarioEliminar = usuarioId;
   console.log(idUsuarioEliminar);
 
-  fetch("http://localhost:9000/api/eliminarUsuario/:_id", {
+  fetch(`http://localhost:9000/api/eliminarUsuario/${usuarioId}`, {
     method: "DELETE",
   }).then(response => {
     if (!response.ok) {

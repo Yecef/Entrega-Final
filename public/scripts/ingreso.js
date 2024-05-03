@@ -2,13 +2,13 @@
 console.log("hola soy ingreso");
 
 const btn = document.getElementById("btn");
-btn.addEventListener("click",()=>{
-Ingresar();
+btn.addEventListener("click", () => {
+    Ingresar();
 
 
-}); 
+});
 
-async function Ingresar(){
+async function Ingresar() {
     const correo = document.getElementById('Usuario').value;
     const contrasena = document.getElementById('contrasena').value;
 
@@ -27,19 +27,19 @@ async function Ingresar(){
 
         console.log(esUsuarioRegistrado);
 
-        if(esUsuarioRegistrado){
+        if (esUsuarioRegistrado) {
             //Ahora verificamos si es admin
             const correoAdmin = "admi.23@gmail.com";
-            
-            if(esUsuarioRegistrado.correo == correoAdmin){
+
+            if (esUsuarioRegistrado.correo == correoAdmin) {
                 alert('Hola administrador!');
                 window.location.href = './admi.html';
-            }else{
+            } else {
                 alert('Ingreso exitoso!');
                 window.location.href = './index.html';
             }
 
-        }else{
+        } else {
             alert('Correo o contraseña incorrectos. Usuario no encontrado! Vuelve a intentarlo o regístrate!');
         }
 
